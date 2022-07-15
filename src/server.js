@@ -22,7 +22,7 @@ class Server {
 
   async start() {
     await ManageDB.connect(process.env.DB_NAME);
-    require("./functions/functions")(this.client);
+    require("./controller")(this.client);
     this.client.once("ready", () => console.log("Online!"));
     this.client.login(process.env.BOT_TOKEN);
   }
