@@ -1,2 +1,2 @@
-web: npm start $PORT
+web: npm start -p $PORT
 worker: PuzzleHelper
