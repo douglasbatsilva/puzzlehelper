@@ -39,8 +39,6 @@ class ManageDB {
 
     delete response[0]._id;
 
-    if (response[0].previewUrl === null) delete response[0].previewUrl;
-
     return response[0];
   }
 }
