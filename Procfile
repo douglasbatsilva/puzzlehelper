@@ -1,1 +1,1 @@
-worker: npm start --port=$PORT
+web: viola --Voila.ip=0.0.0.0 --port=$PORT --no-browser
