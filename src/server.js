@@ -24,7 +24,7 @@ class Server {
   async start() {
     await ManageDB.connect(process.env.DB_NAME);
     require("./controller")(this.client);
-    http.createServer().listen(8080);
+    http.createServer().listen(process.env.PORT);
     this.client.once("ready", () => console.log("Online!"));
     this.client.login(process.env.BOT_TOKEN);
   }
