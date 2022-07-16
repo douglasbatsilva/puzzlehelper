@@ -13,7 +13,6 @@ const botFlags = {
     "GUILD_MESSAGE_REACTIONS",
   ],
 };
-const http = require("http");
 
 class Server {
   constructor() {
@@ -24,7 +23,6 @@ class Server {
   async start() {
     await ManageDB.connect(process.env.DB_NAME);
     require("./controller")(this.client);
-    http.createServer().listen(process.env.PORT);
     this.client.once("ready", () => console.log("Online!"));
     this.client.login(process.env.BOT_TOKEN);
   }
