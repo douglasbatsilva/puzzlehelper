@@ -1,1 +1,1 @@
-worker: npm start -p 3020
+worker: npm start --port=$PORT
