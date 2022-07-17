@@ -1,5 +1,6 @@
 require("dotenv").config();
 const ManageDB = require("../infra/mongo");
+const Message = require("./controller");
 const { Client } = require("discord.js");
 const botFlags = {
   allowedMentions: {
@@ -22,7 +23,7 @@ class Server {
 
   async start() {
     await ManageDB.connect(process.env.DB_NAME);
-    require("./controller")(this.client);
+    new Message(this.client);
     this.client.once("ready", () => console.log("Online!"));
     this.client.login(process.env.BOT_TOKEN);
   }
