@@ -9,7 +9,7 @@ class Message {
 
   watch(bot) {
     bot.on("messageCreate", async (message) => {
-      if (!message.channelId !== "998625559007477781") return;
+      if (!message.channelId === "998625559007477781") return;
       if (!message.content.startsWith(prefix) || message.author.bot) return;
 
       const args = message.content.slice(prefix.length).split(/ +/);
