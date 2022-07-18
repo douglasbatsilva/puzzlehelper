@@ -1,5 +1,6 @@
 const prefix = ".ph";
 const resourceService = require("./services/resources.service");
+const embedService = require("./services/embed.service");
 
 class Message {
   constructor(bot) {
@@ -24,7 +25,7 @@ class Message {
           break;
   
         default:
-          message.author.send(`Comando inválido! Use ${prefix}help`);
+          embedService.invalidCommandEmbed(message);
           break;
       }
     });

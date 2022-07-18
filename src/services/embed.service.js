@@ -51,6 +51,19 @@ class EmbedService {
 
     return message.channel.send({ embeds: [exampleEmbed] });
   }
+
+  invalidCommandEmbed(message) {
+    const exampleEmbed = new MessageEmbed()
+      .setColor("#A52A2A")
+      .addFields({
+        name: "\n❌   COMANDO INVÁLIDO",
+        value: `• Este comando não existe
+        - Digite: **".ph resources"** ou **"ph.pedir"**`,
+      })
+      .setFooter(COMMUNITY_CREDITS);
+
+    return message.channel.send({ embeds: [exampleEmbed] });
+  }
 }
 
 module.exports = new EmbedService();
