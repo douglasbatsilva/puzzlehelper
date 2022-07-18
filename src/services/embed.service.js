@@ -22,9 +22,16 @@ class EmbedService {
       )
       .setFooter(COMMUNITY_CREDITS);
 
-    message.author.send({ embeds: [exampleEmbed] });
+    const dmEmbed = new MessageEmbed()
+      .setColor("#00FF7F")
+      .addFields({
+        name: "\n✅   ENVIADO\n",
+        value: `⠀\n• <@${message.author.id}>, o resource **${resource.name}** foi enviado para seu privado!`,
+      })
+      .setFooter(COMMUNITY_CREDITS);
 
-    return true;
+    message.channel.send({ embeds: [dmEmbed] });
+    return message.author.send({ embeds: [exampleEmbed] });
   }
 
   findedResourceEmbed(message) {
@@ -32,7 +39,7 @@ class EmbedService {
       .setColor("#00FF7F")
       .addFields({
         name: "\n✅   SUCESSO",
-        value: "• Lista de resources enviada para seu privado!",
+        value: "⠀\n• Lista de resources enviada para seu privado!",
       })
       .setFooter(COMMUNITY_CREDITS);
 
@@ -44,7 +51,7 @@ class EmbedService {
       .setColor("#B22222")
       .addFields({
         name: "\n❌   FALHA",
-        value: `• O resource  **${resourceName}** não foi encontrado!
+        value: `⠀\n• O resource  **${resourceName}** não foi encontrado!
         Digite ***ph.resources*** para ver a Lista completa`,
       })
       .setFooter(COMMUNITY_CREDITS);
@@ -57,7 +64,7 @@ class EmbedService {
       .setColor("#A52A2A")
       .addFields({
         name: "\n❌   COMANDO INVÁLIDO",
-        value: `• Este comando não existe
+        value: `⠀\n• Este comando não existe
         - Digite: **".ph resources"** ou **"ph.pedir"**`,
       })
       .setFooter(COMMUNITY_CREDITS);
