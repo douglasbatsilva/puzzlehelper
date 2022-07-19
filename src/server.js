@@ -1,18 +1,18 @@
 require("dotenv").config();
 const ManageDB = require("../infra/mongo");
 const Message = require("./controller");
-const { Client } = require("discord.js");
+const { Client, GatewayIntentBits } = require("discord.js");
 const botFlags = {
   allowedMentions: {
     parse: ["users", "roles", "everyone"],
     repliedUser: true,
   },
   intents: [
-    "GUILDS",
-    "GUILD_MEMBERS",
-    "GUILD_MESSAGES",
-    "GUILD_MESSAGE_REACTIONS",
-  ],
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.DirectMessages,
+],
 };
 
 class Server {
