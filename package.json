@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "awilix": "^7.0.3",
     "discord.js": "*",
     "dotenv": "*",
     "mongodb": "*"

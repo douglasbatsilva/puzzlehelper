@@ -81,4 +81,4 @@ class EmbedService {
   }
 }
 
-module.exports = new EmbedService();
+module.exports = EmbedService;
