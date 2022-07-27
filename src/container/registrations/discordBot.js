@@ -19,7 +19,14 @@ const SINGLETON = { lifetime: Lifetime.SINGLETON };
 const registerDiscord = (container) => {
   const discordBot = new Client(botFlags);
 
-  discordBot.once("ready", () => console.log("PuzzleHelper On!"));
+  discordBot.on("ready", () => {
+    discordBot.user.setPresence({
+      activities: [{ name: "Puzzle Community" }],
+      status: "dnd",
+    });
+
+    console.log("PuzzleHelper On!");
+  });
 
   discordBot.on("messageCreate", async (message) => {
     const messageService = container.resolve("messageService");

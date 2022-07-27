@@ -15,10 +15,6 @@ class BaseMapper {
   async findOne(body) {
     return this.collection.findOne(body);
   }
-
-  async delete(body) {
-    return this.collection.deleteOne(body);
-  }
 }
 
 module.exports = BaseMapper;

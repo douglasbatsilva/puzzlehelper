@@ -13,7 +13,8 @@
     "awilix": "^7.0.3",
     "discord.js": "*",
     "dotenv": "*",
-    "mongodb": "*"
+    "mongodb": "*",
+    "nanoid": "^3.3.4"
   },
   "devDependencies": {
     "nodemon": "*"

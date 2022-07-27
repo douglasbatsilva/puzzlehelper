@@ -4,6 +4,7 @@ const BaseService = require("../common/baseService");
 class ResourceService extends BaseService {
   constructor(opts) {
     super(opts);
+    this.dataService = opts.dataService;
     this.embedService = opts.embedService;
   }
 
@@ -16,7 +17,7 @@ class ResourceService extends BaseService {
   }
 
   saveResourceListOnFile(resourceList) {
-    const teste = [];
+    const resources = [];
     const types = resourceList.map((r) => r.type);
   
     const typesUnique = types.filter((item, pos, ary) => {
@@ -24,11 +25,11 @@ class ResourceService extends BaseService {
     });
   
     typesUnique.forEach(element => {
-      teste.push(" ")
-      teste.push(this.formatResourceNamesToFile(resourceList, element));
+      resources.push(" ")
+      resources.push(this.formatResourceNamesToFile(resourceList, element));
     });
-    const flatTeste = teste.flat();
-    const JoinToFile = flatTeste.join("\n- ");
+    const flatresources = resources.flat();
+    const JoinToFile = flatresources.join("\n- ");
     
     fs.writeFile("resources.txt", JoinToFile, function (err) {
       if (err) return console.log(err);
@@ -46,7 +47,7 @@ class ResourceService extends BaseService {
     return resources;
   };
 
-  sendMessageToCustomer(message) {
+  async sendMessageToCustomer(message) {
     this.embedService.findedResourceEmbed(message);
 
     const file = { attachment: "resources.txt" };
@@ -62,6 +63,7 @@ class ResourceService extends BaseService {
       return this.embedService.notFoundResourceEmbed(resourceName, message);
 
     this.embedService.sendResourceEmbed(resource, message);
+    this.dataService.prepareAndSave(resource, message);
   }
 }
 

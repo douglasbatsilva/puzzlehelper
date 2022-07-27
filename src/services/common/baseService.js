@@ -1,5 +1,6 @@
 class BaseService {
   constructor(opts) {
+    this.nanoid = opts.nanoid;
     this.scope = opts.scope;
     this.repository = null;
 

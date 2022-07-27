@@ -47,7 +47,7 @@ class EmbedService {
       ])
       .setFooter(COMMUNITY_CREDITS);
 
-    return message.channel.send({ embeds: [exampleEmbed] });
+    return message.reply({ embeds: [exampleEmbed] });
   }
 
   notFoundResourceEmbed(resourceName, message) {
@@ -62,7 +62,7 @@ class EmbedService {
       ])
       .setFooter(COMMUNITY_CREDITS);
 
-    return message.channel.send({ embeds: [exampleEmbed] });
+    return message.reply({ embeds: [exampleEmbed] });
   }
 
   invalidCommandEmbed(message) {
@@ -77,7 +77,7 @@ class EmbedService {
       ])
       .setFooter(COMMUNITY_CREDITS);
 
-    return message.channel.send({ embeds: [exampleEmbed] });
+    return message.reply({ embeds: [exampleEmbed] });
   }
 }
 
